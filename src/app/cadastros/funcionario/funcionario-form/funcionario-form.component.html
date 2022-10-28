@@ -1,0 +1,48 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card ">
+          <div class="card-header card-header-rose card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">mail_outline</i>
+            </div>
+            <h4 class="card-title">Cadastrar Lote</h4>
+          </div>
+          <div class="card-body ">
+            <form method="#" action="#">
+
+              <div class="col-md-12">
+                <div class="row">
+                  <mat-form-field class="col-md-8">
+                    <input matInput placeholder="Nome" type="text">
+                  </mat-form-field>
+                  <div class="col-md-4">
+                    <mat-form-field>
+                      <mat-select placeholder="Sexo" name="sexo">
+                        <mat-option *ngFor="let sexo of sexos" [value]="sexo.value">
+                          {{ sexo.viewValue }}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+
+              <mat-form-field class="col-md-12">
+                <mat-label>Descrição</mat-label>
+                <textarea matInput></textarea>
+              </mat-form-field>
+
+
+            </form>
+          </div>
+          <div class="card-footer ">
+            <button mat-raised-button type="submit" class="btn btn-fill btn-rose">Salvar</button>
+            <button mat-raised-button type="submit" class="btn btn-fill btn-rose">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
