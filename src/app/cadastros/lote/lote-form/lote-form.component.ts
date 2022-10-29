@@ -1,10 +1,9 @@
 import { Component ,OnInit} from '@angular/core';
+import { LoteService } from 'src/app/services/lote.service';
+import { MessageService } from 'src/app/services/message.service';
+import { Lote } from './../../../models/lote';
 
-declare var $: any;
-declare interface TableData {
-  headerRow: string[];
-  dataRows: string[][];
-}
+
 @Component({
     selector: 'app-lote-form-cmp',
     templateUrl: 'lote-form.component.html'
@@ -12,28 +11,27 @@ declare interface TableData {
 
 
 export class LoteFormComponent implements OnInit {
-    selectedValue: string;
-    currentSexo: string[];
+   
+    lote: Lote = {
+      nome:        '',
+      descricao:         '',
+      sexo:               '',
+    }
 
-    sexos = [
-      {value: 'misto-0', viewValue: 'Misto'},
-      {value: 'femea-1', viewValue: 'Femea'},
-      {value: 'macho-2', viewValue: 'Macho'},
-    
-    ];
-    public tableData1: TableData;
-    ngOnInit() {
-    this.tableData1 = {
-        headerRow: [ 'ID', 'Nome', 'Descrição', 'Sexo', 'Ação'],
-        dataRows: [
-            
-            ['1', 'Lote 1', 'Lote de misto', 'Misto', 'btn-round'],
-            ['2', 'Lote 2', 'Lote de femeas', 'Femea',  'btn-round'],
-            ['3', 'Lote 3', 'Lote de misto', 'Misto', 'btn-round'],
+    constructor(
+      private service: LoteService,
+      private message: MessageService,
+    ) { }
 
-          
-        ]
-     };
+  
+    ngOnInit() {}
+
+  create() {
+  this.service.cadastrarLote(this.lote).subscribe(response => {
+    this.message.message('Técnico cadastrado com sucesso!!');
+  }, err => {
+    this.message.message(err.error.error);
+  })
 }
 }
 

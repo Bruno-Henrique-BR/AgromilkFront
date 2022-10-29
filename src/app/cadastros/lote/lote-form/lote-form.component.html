@@ -11,34 +11,31 @@
           </div>
           <div class="card-body ">
             <form method="#" action="#">
-
-              <div class="col-md-12">
-                <div class="row">
-                  <mat-form-field class="col-md-8">
-                    <input matInput placeholder="Nome" type="text">
-                  </mat-form-field>
-                  <div class="col-md-4">
-                    <mat-form-field>
-                      <mat-select placeholder="Sexo" name="sexo">
-                        <mat-option *ngFor="let sexo of sexos" [value]="sexo.value">
-                          {{ sexo.viewValue }}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                  </div>
-                </div>
-              </div>
-
               <mat-form-field class="col-md-12">
-                <mat-label>Descrição</mat-label>
-                <textarea matInput></textarea>
+                <mat-label>Nome</mat-label>
+                <textarea matInput 
+                [(ngModel)]="lote.nome"
+                name="nome"
+                placeholder="Lote1"></textarea>
               </mat-form-field>
-
-
+              <mat-form-field class="col-md-12">
+                <mat-label>Descricao</mat-label>
+                <textarea matInput 
+                [(ngModel)]="lote.descricao"
+                name="descricao"
+                placeholder="Lotes de machos"></textarea>
+              </mat-form-field>
+              <mat-form-field class="col-md-12">
+                <mat-label>Sexo</mat-label>
+                <textarea matInput 
+                [(ngModel)]="lote.sexo"
+                name="sexo"
+                placeholder="Macho"></textarea>
+              </mat-form-field>
             </form>
           </div>
           <div class="card-footer ">
-            <button mat-raised-button type="submit" class="btn btn-fill btn-rose">Salvar</button>
+            <button (click)="create()" mat-raised-button type="submit" class="btn btn-fill btn-rose">Salvar</button>
             <button mat-raised-button type="submit" class="btn btn-fill btn-rose">Cancelar</button>
           </div>
         </div>
