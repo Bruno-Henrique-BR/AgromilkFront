@@ -28,7 +28,7 @@ export class LoteFormComponent implements OnInit {
 
   create() {
   this.service.cadastrarLote(this.lote).subscribe(response => {
-    this.message.message('Técnico cadastrado com sucesso!!');
+    this.message.message('Lote cadastrado com sucesso!!');
   }, err => {
     this.message.message(err.error.error);
   })

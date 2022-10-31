@@ -17,8 +17,8 @@ export class LoteService {
 
 
 
-  public findAll():Observable<Lote[]> {
-    return this.http.get<Lote[]>(`${API_CONFIG.baseUrl}/lote`);
+  listarTodos():Observable<Lote[]> {
+    return this.http.get<Lote[]>(`${API_CONFIG.baseUrl}/agromilk/lote`);
   }
 
   cadastrarLote(lote: Lote):Observable<Lote> {
